@@ -1,0 +1,15 @@
+{
+  "name": "django-conflose",
+  "version": "0.0.1",
+  "description": "Static assets management for django-conflose",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:prologin/django-conflose"
+  },
+  "author": "Association Prologin",
+  "license": "GPL-3.0",
+  "private": true,
+  "devDependencies": {
+    "ace-builds": "1.x.x"
+  }
+}

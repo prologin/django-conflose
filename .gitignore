@@ -1,0 +1,19 @@
+# Good practises
+venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# JavaScript
+node_modules/
+package-lock.json
+
+# Python build system
+pip-wheel-metadata/
+*.egg-info/
+dist/
+build/
+
+# IDEs
+.idea/
