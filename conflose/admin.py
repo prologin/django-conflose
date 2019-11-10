@@ -7,7 +7,6 @@ import conflose
 class CSSEditorWidget(forms.Textarea):
     class Media:
         js = (
-            '//cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js',
             'conflose/js/editor.js',
             'conflose/vendor/ace.js',
             'conflose/vendor/ext-themelist.js',
