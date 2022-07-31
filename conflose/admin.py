@@ -22,15 +22,15 @@ class CSSEditorWidget(forms.Textarea):
           <div id="editor_{name}" style="width: 800px; height: 500px;"
           >{value}</div>
         </div>
-        '''.format(textarea=textarea, name=name, value=value)
+        '''.format(
+            textarea=textarea, name=name, value=value
+        )
         return html
 
 
 class ConfloseAdmin(admin.ModelAdmin):
     list_display = ['name']
-    formfield_overrides = {
-        models.TextField: {'widget': CSSEditorWidget}
-    }
+    formfield_overrides = {models.TextField: {'widget': CSSEditorWidget}}
 
 
 class UserConfloseAdmin(admin.ModelAdmin):

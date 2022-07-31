@@ -11,8 +11,10 @@ class Conflose(models.Model):
 
 
 class UserConflose(models.Model):
-    user = models.OneToOneField(get_user_model(), related_name='userconflose',
-                                on_delete=models.CASCADE)
-    conflose = models.ForeignKey(Conflose, related_name='userconfloses',
-                                 on_delete=models.CASCADE)
+    user = models.OneToOneField(
+        get_user_model(), related_name='userconflose', on_delete=models.CASCADE
+    )
+    conflose = models.ForeignKey(
+        Conflose, related_name='userconfloses', on_delete=models.CASCADE
+    )
     message = models.TextField(blank=True)
