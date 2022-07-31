@@ -1,17 +1,23 @@
-stages:          # List of stages for jobs, and their order of execution
-  - test
+# Change pip's cache directory to be inside the project directory since we can
+# only cache local items.
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
-test:
-    stage: test
-    image: python:${PYTHON_VERSION}
-    before_script:
-        - pip install black
-        - pip install -e .
-    script:
-        - black --check .
-    parallel:
-        matrix:
-            - PYTHON_VERSION: "3.8"
-            - PYTHON_VERSION: "3.9"
-            - PYTHON_VERSION: "3.10"
+cache:
+  paths:
+    - "$PIP_CACHE_DIR"
 
+before_script:
+  - pip install black
+  - pip install -e .
+
+stages:
+  - lint
+
+lint:
+  stage: lint
+
+  image: python:latest
+
+  script:
+    - black --check .
