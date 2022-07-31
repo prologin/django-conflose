@@ -1,0 +1,15 @@
+stages:          # List of stages for jobs, and their order of execution
+  - test
+
+test:
+    stage: test
+    image: python:${PYTHON_VERSION}
+    before_script:
+        - pip install black
+        - pip install -e .
+    script:
+        - black --check .
+    parallel:
+        matrix:
+            - PYTHON_VERSION: "3.8"
+            - PYTHON_VERSION: "3.9"
